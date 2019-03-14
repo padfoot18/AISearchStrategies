@@ -1,8 +1,7 @@
 """
-Breadth First Search algorithm for uninformed search
+Depth First Search algorithm for uninformed search
 """
 
 
-def bfs(state_space, goal_state):
+def dfs(state_space, goal_state):
     pass
-
