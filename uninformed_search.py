@@ -1,5 +1,5 @@
 """
-bfs ids for map exploration
+dfs ids for map exploration
 """
 import pandas as pd
 
@@ -12,10 +12,13 @@ print(city_distance)
 
 
 class Node:
-    def __init__(self, city_name, parent):
+    def __init__(self, city_name, parent, id):
         self.city_name = city_name
         self.parent = parent
         self.child = []
+        self.id = id
+        # id can be used for printing sequence of nodes visited. For eg n1 will
+        # have id 1, n2 eill have id 2
 
     def __repr__(self):
         child_names = [x.city_name for x in self.child]
@@ -26,18 +29,18 @@ class Node:
             self.child.append(child)
 
 
-n1 = Node('Arad', parent=None)
-n2 = Node('Sibiu', parent=n1)
-n3 = Node('Timisoara', parent=n1)
-n4 = Node('Zerind', parent=n1)
-n5 = Node('Oradia', parent=n2)
-n6 = Node('Rimmicu Vilcea', parent=n2)
-n7 = Node('Fagaras', parent=n2)
-n8 = Node('Lugoj', parent=n3)
-n9 = Node('Craiova', parent=n6)
-n10 = Node('Pitesti', parent=n6)
-n11 = Node('Bucharest', parent=n7)
-n12 = Node('Mehadia', parent=n8)
+n1 = Node('Arad', None, 1)
+n2 = Node('Sibiu', n1, 2)
+n3 = Node('Timisoara', n1, 3)
+n4 = Node('Zerind', n1, 4)
+n5 = Node('Oradia', n2, 5)
+n6 = Node('Rimmicu Vilcea', n2, 6)
+n7 = Node('Fagaras', n2, 7)
+n8 = Node('Lugoj', n3, 8)
+n9 = Node('Craiova', n6, 9)
+n10 = Node('Pitesti', n6, 10)
+n11 = Node('Bucharest', n7, 11)
+n12 = Node('Mehadia', n8, 12)
 
 n1.append_child([n2, n3, n4])
 n2.append_child([n5, n6, n7])
