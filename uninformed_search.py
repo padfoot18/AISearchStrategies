@@ -1,15 +1,15 @@
 """
 dfs ids for map exploration
 """
-import pandas as pd
-
-df = pd.read_csv('input.csv')
-city_names = df.columns
-print(city_names)
-
-city_distance = df.iloc[1:, 1:]
-print(city_distance)
-
+# import pandas as pd
+#
+# df = pd.read_csv('input.csv')
+# city_names = df.columns
+# print(city_names)
+#
+# city_distance = df.iloc[1:, 1:]
+# print(city_distance)
+import ids_search
 
 class Node:
     def __init__(self, city_name, parent, id):
@@ -48,3 +48,6 @@ n3.append_child([n8])
 n6.append_child([n9, n10])
 n7.append_child([n11])
 n8.append_child([n12])
+
+if not ids_search.ids(n1, 'Bucharest', 4):
+    print('Goal state not found')

@@ -1,7 +1,7 @@
 """
 Iterative Deepening search algorithm for uninformed search
 """
-import uninformed_search
+# import uninformed_search
 
 
 def ids(root, goal_state, max_depth):
@@ -15,6 +15,8 @@ def ids(root, goal_state, max_depth):
     sequence = list()
     for depth_limit in range(max_depth):
         if dls(root, goal_state, depth_limit, sequence):
+            sequence = [str(x) for x in sequence]
+            print('Sequence of nodes visited: ', ', '.join(sequence), sep='\n')
             return True
     return False
 
@@ -27,7 +29,20 @@ def dls(root: 'uninformed_search.Node', goal_state: str, depth_limit: int, seque
     :param depth_limit:
     :return:
     """
-    for node in root.child:
-        sequence.append()
+    sequence.append(root.id)
 
-
+    if root.city_name == goal_state:
+        print('Path to goal state:')
+        path = [root.id]
+        while root.parent:
+            root = root.parent
+            path.insert(0, root.id)
+        path = [str(x) for x in path]
+        print(' --> '.join(path))
+        return True
+    depth_limit -= 1
+    if depth_limit >= 0:
+        for node in root.child:
+            if dls(node, goal_state, depth_limit, sequence):
+                return True
+    return False
