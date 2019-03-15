@@ -10,6 +10,8 @@ dfs ids for map exploration
 # city_distance = df.iloc[1:, 1:]
 # print(city_distance)
 import ids_search
+import dfs_search
+
 
 class Node:
     def __init__(self, city_name, parent, id):
@@ -49,5 +51,9 @@ n6.append_child([n9, n10])
 n7.append_child([n11])
 n8.append_child([n12])
 
+print("\nIDS")
 if not ids_search.ids(n1, 'Bucharest', 4):
     print('Goal state not found')
+
+print("\nDFS")
+dfs_search.dfs_main(n1, 'Bucharest')
