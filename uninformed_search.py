@@ -24,8 +24,12 @@ class Node:
         # have id 1, n2 will have id 2
 
     def __repr__(self):
+        # return str(self.id)+self.city_name
         child_names = [x.city_name for x in self.child]
         return "City Name: {}, Parent: {}, Child: {}".format(self.city_name, self.parent, child_names)
+
+    def __str__(self):
+        return str(self.id)+'-'+self.city_name
 
     def append_child(self, children):
         for child in children:

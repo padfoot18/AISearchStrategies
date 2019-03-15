@@ -9,7 +9,8 @@ def dfs(root: 'uninformed_search.Node', goal_state: str, sequence: list):
         for child_nodes in root.child:
             if child_nodes.id not in sequence:
                 root = child_nodes
-                dfs(root, goal_state, sequence)
+                if dfs(root, goal_state, sequence):
+                    return True
     else:
         print("Sequence of nodes visited")
         print(", ".join([str(nodes) for nodes in sequence]))
@@ -19,7 +20,7 @@ def dfs(root: 'uninformed_search.Node', goal_state: str, sequence: list):
             root = root.parent
             path.insert(0, root.city_name)
         print(' --> '.join(path))
-        exit(0)
+        return True
 
 
 def dfs_main(root: 'uninformed_search.Node', goal_state: str):
