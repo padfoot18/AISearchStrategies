@@ -32,12 +32,15 @@ def dls(root: 'uninformed_search.Node', goal_state: str, depth_limit: int, seque
     sequence.append(root.id)
 
     if root.city_name == goal_state:
+        depth = root.level
+        print('Solution found at depth =', depth)
         print('Path to goal state:')
         path = [root.city_name]
         while root.parent:
             root = root.parent
             path.insert(0, root.city_name)
         print(' --> '.join(path))
+
         return True
     depth_limit -= 1
     if depth_limit >= 0:

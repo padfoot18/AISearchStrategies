@@ -15,8 +15,9 @@ import generate_state_space_tree
 
 
 class Node:
-    def __init__(self, city_name, parent, id):
+    def __init__(self, city_name, parent, id, level):
         self.city_name = city_name
+        self.level = level
         self.parent = parent
         self.child = []
         self.id = id
@@ -36,18 +37,18 @@ class Node:
             self.child.append(child)
 
 
-n1 = Node('Arad', None, 1)
-n2 = Node('Sibiu', n1, 2)
-n3 = Node('Timisoara', n1, 3)
-n4 = Node('Zerind', n1, 4)
-n5 = Node('Oradia', n2, 5)
-n6 = Node('Rimmicu Vilcea', n2, 6)
-n7 = Node('Fagaras', n2, 7)
-n8 = Node('Lugoj', n3, 8)
-n9 = Node('Craiova', n6, 9)
-n10 = Node('Pitesti', n6, 10)
-n11 = Node('Bucharest', n7, 11)
-n12 = Node('Mehadia', n8, 12)
+n1 = Node('Arad', None, 1, 1)
+n2 = Node('Sibiu', n1, 2, 2)
+n3 = Node('Timisoara', n1, 3, 2)
+n4 = Node('Zerind', n1, 4, 2)
+n5 = Node('Oradia', n2, 5, 3)
+n6 = Node('Rimmicu Vilcea', n2, 6, 3)
+n7 = Node('Fagaras', n2, 7, 3)
+n8 = Node('Lugoj', n3, 8, 3)
+n9 = Node('Craiova', n6, 9, 4)
+n10 = Node('Pitesti', n6, 10, 4)
+n11 = Node('Bucharest', n7, 11, 4)
+n12 = Node('Mehadia', n8, 12, 4)
 
 n1.append_child([n2, n3, n4])
 n2.append_child([n5, n6, n7])

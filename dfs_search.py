@@ -12,14 +12,16 @@ def dfs(root: 'uninformed_search.Node', goal_state: str, sequence: list):
                 if dfs(root, goal_state, sequence):
                     return True
     else:
-        print("Sequence of nodes visited")
-        print(", ".join([str(nodes) for nodes in sequence]))
+        depth = root.level
+        print('Solution found at depth =', depth)
         print("Path to goal state:")
         path = [root.city_name]
         while root.parent:
             root = root.parent
             path.insert(0, root.city_name)
         print(' --> '.join(path))
+        print("Sequence of nodes visited")
+        print(", ".join([str(nodes) for nodes in sequence]))
         return True
 
 
