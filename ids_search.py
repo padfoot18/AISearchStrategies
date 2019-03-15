@@ -33,11 +33,10 @@ def dls(root: 'uninformed_search.Node', goal_state: str, depth_limit: int, seque
 
     if root.city_name == goal_state:
         print('Path to goal state:')
-        path = [root.id]
+        path = [root.city_name]
         while root.parent:
             root = root.parent
-            path.insert(0, root.id)
-        path = [str(x) for x in path]
+            path.insert(0, root.city_name)
         print(' --> '.join(path))
         return True
     depth_limit -= 1

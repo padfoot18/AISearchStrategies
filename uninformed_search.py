@@ -11,6 +11,7 @@ dfs ids for map exploration
 # print(city_distance)
 import ids_search
 import dfs_search
+import generate_state_space_tree
 
 
 class Node:
@@ -50,6 +51,8 @@ n3.append_child([n8])
 n6.append_child([n9, n10])
 n7.append_child([n11])
 n8.append_child([n12])
+
+generate_state_space_tree.generate_tree(n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12)
 
 print("\nIDS")
 if not ids_search.ids(n1, 'Bucharest', 4):
