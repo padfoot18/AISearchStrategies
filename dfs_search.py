@@ -4,7 +4,8 @@ Depth First Search algorithm for uninformed search
 
 
 def dfs(root: 'uninformed_search.Node', goal_state: str, sequence: list):
-    sequence.append(root.id)
+    seq_string = root.city_name + "(" + str(root.level) + ")"
+    sequence.append(seq_string)
     if root.city_name != goal_state:
         for child_nodes in root.child:
             if child_nodes.id not in sequence:
@@ -21,7 +22,7 @@ def dfs(root: 'uninformed_search.Node', goal_state: str, sequence: list):
             path.insert(0, root.city_name)
         print(' --> '.join(path))
         print("Sequence of nodes visited")
-        print(", ".join([str(nodes) for nodes in sequence]))
+        print(", ".join(sequence))
         return True
 
 

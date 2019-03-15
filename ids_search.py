@@ -15,7 +15,6 @@ def ids(root, goal_state, max_depth):
     sequence = list()
     for depth_limit in range(max_depth):
         if dls(root, goal_state, depth_limit, sequence):
-            sequence = [str(x) for x in sequence]
             print('Sequence of nodes visited: ', ', '.join(sequence), sep='\n')
             return True
     return False
@@ -29,7 +28,8 @@ def dls(root: 'uninformed_search.Node', goal_state: str, depth_limit: int, seque
     :param depth_limit:
     :return:
     """
-    sequence.append(root.id)
+    seq_string = root.city_name + "(" + str(root.level) + ")"
+    sequence.append(seq_string)
 
     if root.city_name == goal_state:
         depth = root.level
