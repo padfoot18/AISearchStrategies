@@ -1,14 +1,6 @@
 """
 dfs ids for map exploration
 """
-# import pandas as pd
-#
-# df = pd.read_csv('input.csv')
-# city_names = df.columns
-# print(city_names)
-#
-# city_distance = df.iloc[1:, 1:]
-# print(city_distance)
 import ids_search
 import dfs_search
 import generate_state_space_tree

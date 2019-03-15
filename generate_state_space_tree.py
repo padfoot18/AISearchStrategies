@@ -43,7 +43,6 @@ def generate_tree(n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12):
     graph.add_edge(pydot.Edge(node7, node11))
     graph.add_edge(pydot.Edge(node8, node12))
 
-
     graph.write_png('state_space_tree.png')
 
     img = mpimg.imread('state_space_tree.png')
