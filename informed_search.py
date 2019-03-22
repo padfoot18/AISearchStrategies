@@ -1,6 +1,6 @@
 import pandas as pd
 from a_star_search import a_star_search
-
+from greedy_bfs import greedy_bfs
 
 df = pd.read_csv('input.csv')
 df.set_index('city_name', inplace=True)
@@ -39,4 +39,7 @@ class Node:
             self.child.append(child)
 
 
+print("A* Search:")
 a_star_search('Arad', 'Bucharest', df, heuristics)
+print("Greedy Best First Search:")
+greedy_bfs('Arad', 'Bucharest', df, heuristics)
