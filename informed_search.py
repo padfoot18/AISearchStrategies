@@ -1,10 +1,14 @@
 import pandas as pd
-import numpy as np
+from a_star_search import a_star_search
+
 
 df = pd.read_csv('input.csv')
+df.set_index('city_name', inplace=True)
 
-city_distance = df.iloc[1:, 1:]
-city_distance = np.array(city_distance)
+# print(df)
+
+# city_distance = df.iloc[1:, 1:]
+# city_distance = np.array(city_distance)
 
 heuristics = {'Arad': 366, 'Bucharest': 0, 'Craiova': 160, 'Dobreta': 242, 'Eforie': 161, 'Fagaras': 176,
               'Guirgui': 77, 'Hirsova': 151, 'Iasi': 226, 'Lugoj': 244, 'Mehadia': 241, 'Neamt':234, 'Oradia': 380,
@@ -33,3 +37,6 @@ class Node:
     def append_child(self, children):
         for child in children:
             self.child.append(child)
+
+
+a_star_search('Arad', 'Bucharest', df, heuristics)
