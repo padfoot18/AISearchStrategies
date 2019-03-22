@@ -2,13 +2,17 @@
 A* search algorithm
 """
 import pprint
+from heapq import heappop, heappush
 
-def a_star_search(root, goal_state, map, heurestic, g=0, sequence=None, path=None):
+
+def a_star_search(root, goal_state, map, heurestic, g_global=0, heap=None, sequence=None, path=None):
     print(root)
     if path is None:
         path = []
     if sequence is None:
         sequence = []
+    if heap is None:
+        heap = []
     path.append(root)
 
     if root == goal_state:
@@ -19,15 +23,14 @@ def a_star_search(root, goal_state, map, heurestic, g=0, sequence=None, path=Non
         print()
         return
     children = dict(map.loc[root, :])
-    min_cost = 999999
 
     for child, dist in children.items():
-        sequence.append([child, heurestic[child]])
         if dist != 0:
+            sequence.append([child, heurestic[child]])
+            g = g_global + children[child]
             h = heurestic[child]
-            if (g+h) < min_cost:
-                min_cost = g+h
-                min_child = child
+            heappush(heap, [g+h, child])
 
-    g += children[min_child]
-    a_star_search(min_child, goal_state,map, heurestic, g, sequence, path)
+    min_child = heappop(heap)[-1]
+    g_global += children[min_child]
+    a_star_search(min_child, goal_state, map, heurestic, g_global, heap, sequence, path)

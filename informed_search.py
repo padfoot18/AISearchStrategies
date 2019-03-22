@@ -12,7 +12,7 @@ df.set_index('city_name', inplace=True)
 
 heuristics = {'Arad': 366, 'Bucharest': 0, 'Craiova': 160, 'Dobreta': 242, 'Eforie': 161, 'Fagaras': 176,
               'Guirgui': 77, 'Hirsova': 151, 'Iasi': 226, 'Lugoj': 244, 'Mehadia': 241, 'Neamt':234, 'Oradia': 380,
-              'Pitesti': 10, 'Rimmicu Vilcea': 193, 'Sibiu': 253, 'Timisora': 329, 'Urziceni': 80, 'Vaslui': 199,
+              'Pitesti': 100, 'Rimmicu Vilcea': 193, 'Sibiu': 253, 'Timisora': 329, 'Urziceni': 80, 'Vaslui': 199,
               'Zerind': 374}
 
 
