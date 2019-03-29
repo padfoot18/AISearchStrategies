@@ -6,7 +6,6 @@ from heapq import heappop, heappush
 
 
 def a_star_search(root, goal_state, map, heurestic, g_global=0, heap=None, sequence=None, path=None):
-    print(root)
     if path is None:
         path = []
     if sequence is None:
@@ -26,9 +25,9 @@ def a_star_search(root, goal_state, map, heurestic, g_global=0, heap=None, seque
 
     for child, dist in children.items():
         if dist != 0:
-            sequence.append([child, heurestic[child]])
             g = g_global + children[child]
             h = heurestic[child]
+            sequence.append([child, g+h])
             heappush(heap, [g+h, child])
 
     min_child = heappop(heap)[-1]
