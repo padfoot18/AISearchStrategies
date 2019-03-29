@@ -6,7 +6,6 @@ from heapq import heappop, heappush
 
 
 def a_star_search(root, goal_state, map, heurestic, g_global=0, heap=None, sequence=None, path=None):
-    print(root)
     if path is None:
         path = []
     if sequence is None:
