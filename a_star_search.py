@@ -20,6 +20,20 @@ def a_star_search(root, goal_state, map, heurestic, g_global=0, heap=None, seque
         print('Path to goal state:')
         print(' --> '.join(path))
         print()
+
+        i = len(path) - 2
+        child = path[-1]
+        actual_path = [child]
+
+        while i >= 0:
+            node = path[i]
+            if map.loc[node, child]:
+                actual_path.insert(0, node)
+                child = node
+            i -= 1
+
+        print('Actual path traversed: ')
+        print(' --> '.join(actual_path))
         return
     children = dict(map.loc[root, :])
 
